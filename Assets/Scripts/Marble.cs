@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class Marble : MonoBehaviour
 {
+    private bool _isActionable;
+    private GameObject _marbleParent;
 
-    // Start is called before the first frame update
-    void Start()
+    public bool IsActionable => _isActionable;
+
+    public void SetParent(GameObject marbleParent)
     {
-        
+        _marbleParent = marbleParent;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetIsActionable(bool isActionable)
     {
-        
+        _isActionable = isActionable;
     }
 }

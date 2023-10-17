@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 498467860494511455}
+  - component: {fileID: 498467860494511426}
+  - component: {fileID: 1168812613162085685}
   - component: {fileID: 498467860494511454}
   - component: {fileID: 498467860494511452}
   - component: {fileID: 498467860494511453}
-  - component: {fileID: 498467860494511426}
   - component: {fileID: 498467860494511427}
-  - component: {fileID: 1168812613162085685}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -37,6 +37,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &498467860494511426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498467860494511449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85e6d6cc52bc954e9a8c94a6017bff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _accelTime: 0.25
+  _decelTime: 0.25
+  _maxSpeed: 5
+--- !u!114 &1168812613162085685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498467860494511449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d670983681452447b57326960eae637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _marblePrefab: {fileID: 8443069504016019736, guid: f8c2bcc47bac0304088730dd023e4287, type: 3}
+  _initialMarbleActions: 2
+  _marbleLaunchSpeed: 16.33
 --- !u!212 &498467860494511454
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -126,21 +156,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &498467860494511426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 498467860494511449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a85e6d6cc52bc954e9a8c94a6017bff9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _accelTime: 0.25
-  _decelTime: 0.25
-  _maxSpeed: 5
 --- !u!114 &498467860494511427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,16 +186,3 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1168812613162085685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 498467860494511449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d670983681452447b57326960eae637, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _marblePrefab: {fileID: 0}

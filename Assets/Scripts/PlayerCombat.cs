@@ -7,7 +7,7 @@ public class PlayerCombat : MonoBehaviour
 {
     [SerializeField] private GameObject _marblePrefab;
     [SerializeField] private int _initialMarbleActions = 2;
-    [SerializeField] private float _marbleLaunchSpeed = 5;
+    [SerializeField] private float _marbleLaunchSpeed = 10;
 
     private int _currentMarbleActions;
     private bool _hasMarble;
