@@ -5,7 +5,7 @@ using UnityEngine;
 public class Marble : MonoBehaviour
 {
     private bool _isActionable;
-    private bool _canBePickedUp;
+    [SerializeField] private bool _canBePickedUp;
 
     private GameObject _marbleParent;
     private Collider2D _marbleCollider;
@@ -31,18 +31,31 @@ public class Marble : MonoBehaviour
     public void SetCanBePickedUp(bool canBePickedUp)
     {
         _canBePickedUp = canBePickedUp;
+        
+        if (canBePickedUp == true)
+        {
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), _marbleParent.GetComponent<Collider2D>(), false);
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collided");
+        if(collision.gameObject == _marbleParent)
+        {
+            _marbleParent.GetComponent<PlayerCombat>().SetHasMarble(true);
+            _marbleParent.GetComponent<PlayerCombat>().ResetMarbleActions();
+            Destroy(this.gameObject);
+            return;
+        }
+
         if (!_isActionable)
         {
             _isActionable = true;
         }
         if (!_canBePickedUp)
         {
-            _canBePickedUp = true;
+            SetCanBePickedUp(true);
         }
     }
 }

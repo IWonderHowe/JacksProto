@@ -10,7 +10,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private float _marbleLaunchSpeed = 10;
 
     private int _currentMarbleActions;
-    private bool _hasMarble;
+    [SerializeField] private bool _hasMarble;
 
 
     private Rigidbody2D _rb;
@@ -26,7 +26,7 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     private void MeleeAttack()
@@ -47,9 +47,10 @@ public class PlayerCombat : MonoBehaviour
         
         // instantiate the marble and have it initially ignore the collision it has with the player
 
-        if (_hasMarble) 
+        if (_hasMarble)
         {
             _currentMarble = Instantiate(_marblePrefab);
+            _currentMarble.GetComponent<Marble>().SetParent(this.gameObject);
             Physics2D.IgnoreCollision(_currentMarble.GetComponent<Collider2D>(), GetComponent<Collider2D>(), true);
             relativeMousePos = GetRelativeMousePos(transform.position);
             _currentMarble.transform.position = transform.position;
@@ -58,7 +59,8 @@ public class PlayerCombat : MonoBehaviour
 
         else 
         {
-            relativeMousePos = GetRelativeMousePos(_currentMarble.transform.position); 
+            relativeMousePos = GetRelativeMousePos(_currentMarble.transform.position);
+            _currentMarble.GetComponent<Marble>().SetCanBePickedUp(true);
         }
 
 
@@ -90,5 +92,15 @@ public class PlayerCombat : MonoBehaviour
     private void TeleportToMarble()
     {
 
+    }
+
+    public void SetHasMarble(bool hasMarble)
+    {
+        _hasMarble = hasMarble;
+    }
+
+    public void ResetMarbleActions()
+    {
+        _currentMarbleActions = _initialMarbleActions;
     }
 }
